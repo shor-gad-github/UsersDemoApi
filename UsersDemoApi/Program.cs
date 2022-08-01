@@ -28,7 +28,7 @@ builder.Services.AddSwaggerGen();
 //--Create Singelton opbject used by anywhere in the application
 //--any time this is in the controller constructor it will be injected automaticlly 
 //--into constractor
-builder.Services.AddSingleton<UsersRepository>();
+builder.Services.AddSingleton<IUserRepository,DbUserRepository>();
 builder.Services.AddSingleton<CompaniesRepository>();
 var app = builder.Build();
 //--------------------------------------------------------------------------------
@@ -44,7 +44,8 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 
 app.UseAuthorization();
-
+///**enable run static files (Client APP live and hosted together with server origion)
+app.UseStaticFiles();
 app.MapControllers();
 app.UseCors(MyAllowSpecificOrigins);
 app.Run();

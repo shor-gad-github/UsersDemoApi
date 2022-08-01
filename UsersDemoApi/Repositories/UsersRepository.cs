@@ -2,7 +2,7 @@
 
 namespace UsersDemoApi.Repositories
 {
-    public class UsersRepository
+    public class UsersRepository : IUserRepository
     {
         private List<User> users;
        

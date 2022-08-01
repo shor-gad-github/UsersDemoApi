@@ -10,10 +10,10 @@ namespace UsersDemoApi.Controllers
     [ApiController]
     public class UsersController : ControllerBase
     {
-        private UsersRepository usersRepository;
+        private IUserRepository usersRepository;
         private CompaniesRepository companiesRepository;
 
-        public UsersController(UsersRepository usersRepository, CompaniesRepository companiesRepository)
+        public UsersController(IUserRepository usersRepository, CompaniesRepository companiesRepository)
         {
             this.usersRepository = usersRepository;
             this.companiesRepository = companiesRepository;
